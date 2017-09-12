@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="start()">Start</button>
+  <button ion-button (click)="signOut()">Logout</button>
+  <div class="main-application">
+    <p>Hello, {{userDisplayName}}!</p>
+  </div>
+  <div id="gSignInWrapper">
+    <div id="customBtn" class="customGPlusSignIn">
+      <span class="icon"></span>
+      <button ion-button class="buttonText">Google</button>
+    </div>
+  </div>
+
+  <button ion-button (click)="listFile()">Get Drive</button>
+
+</ion-content>

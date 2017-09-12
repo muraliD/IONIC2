@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cats</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="personAddImage()">
+        <ion-icon name="images"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+			 <img style="text-align: center;" src={{img}}  width=100% height=100% alt="your image">
+			 </div>
+</ion-content>

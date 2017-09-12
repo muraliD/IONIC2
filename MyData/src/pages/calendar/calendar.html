@@ -1,0 +1,49 @@
+
+<ion-header>
+  <ion-navbar color="custom" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{viewTitle}}</ion-title>
+    <ion-buttons end>
+          
+            <!--<button ion-button (click)="changeMode('month')">M</button>
+            <button ion-button (click)="changeMode('week')">W</button>
+            <button ion-button (click)="monthData('day')">D</button>-->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content class="has-header">
+    <calendar [eventSource]="eventSource"
+              [calendarMode]="calendar.mode"
+              [currentDate]="calendar.currentDate"
+              (onCurrentDateChanged)="onCurrentDateChanged($event)"
+              (onEventSelected)="onEventSelected($event)"
+              (onTitleChanged)="onViewTitleChanged($event)"
+              (onTimeSelected)="onTimeSelected($event)"
+              step="30">
+    </calendar>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <button *ngIf="incAmt" style="background-color: rgb(101,120,30)" ion-button outline  icon-left color="custom" (click)="detailRecord('1')">
+         <h6 style="padding-right:5px;padding-bottom:5px;color:white">{{incAmt| currency:'INR':true:'1.2-2'}} </h6>
+        <ion-icon color="light" name="arrow-round-up"></ion-icon>
+      </button>
+      <button *ngIf="expAmt" style="background-color: #f53d3d" ion-button outline icon-left color="danger" (click)="detailRecord('2')">
+        <h6 style="padding-right:5px;padding-bottom:5px;color:white">{{expAmt| currency:'INR':true:'1.2-2'}}</h6>
+        <ion-icon color="light"  name="arrow-round-down"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button style="background-color: #222" ion-button icon-left color="dark" (click)="addevent()">
+        <h6 style="padding-right:5px;padding-bottom:5px;color:white">New</h6>
+        <ion-icon color="light" name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar color="custom">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Members</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="personAddMethod()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="myList">
+  
+<ion-list  *ngFor="let person of members" >  
+  <ion-item-sliding>
+    <ion-item   (click)="editPersonMethod(person)">
+      <ion-row>
+        <ion-col start text-left style="background-color:transparent;font-weight: bold;"><h2 style="background-color:transparent;font-weight: bold;" color={{person.exceed}} >{{person.name}}</h2></ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col start text-left style="background-color:transparent;font-weight: bold;">{{person.date | date: 'dd/MM/yyyy'}}</ion-col> 
+      </ion-row> 
+      <ion-row>
+        <ion-col col-3 style="background-color:transparent;font-weight: bold;">Amount:</ion-col>
+        <ion-col col-3 style="background-color:transparent;font-weight: normal;">{{person.amount | currency:'INR':true:'1.2-2'}}</ion-col>
+        <ion-col end text-right style="background-color:transparent;font-weight: normal;"><ion-icon name="arrow-dropright-circle"></ion-icon></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3 style="background-color:transparent;font-weight: bold;">Intrest:</ion-col>
+        <ion-col col-3 style="background-color:transparent;font-weight: normal;">{{person.intrest| currency:'INR':true:'1.2-2'}}</ion-col>
+      </ion-row>
+       <ion-row>
+        <ion-col col-3 style="background-color:transparent;font-weight: bold;">Duration:</ion-col>
+        <ion-col col-3 style="background-color:transparent;font-weight: normal;">{{person.months}} Months</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3 style="background-color:transparent;font-weight: bold;">Total:</ion-col>
+        <ion-col col-3 style="background-color:transparent;font-weight: normal;">{{person.total| currency:'INR':true:'1.2-2'}}</ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="deleteMember(person.id)">
+        <ion-icon name="trash"></ion-icon>
+        Delete
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>
+
+<button ion-button color="dark" clear item-right>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>

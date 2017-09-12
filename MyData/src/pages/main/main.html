@@ -1,0 +1,36 @@
+<ion-menu [content]="mycontent">
+
+	<ion-content style="background-color:white">
+	    	
+		<ion-list style="background-color:Transparent" >
+			 <div>
+			 <img style="text-align: center;" src="assets/img/family.jpg"  width="310" height="202" alt="your image">
+			 </div>
+			 <!--<button style="height:50px"  *ngFor="let menu of sidemenuArray" class="menuBtn" ion-item no-lines item-center icon-left icon-left menuClose (click)="openPage(menu)">
+                <ion-icon color={{menu.color}} name={{menu.icon}}></ion-icon>
+                {{menu.name}}
+			</button>-->
+
+			<ion-item *ngFor="let menu of sidemenuArray" menuClose (click)="openPage(menu)">
+              <ion-icon color="grayCol" name={{menu.icon}} item-left></ion-icon>
+                <h2 style="color:#525252" >{{menu.name}}</h2>
+              <ion-badge  style="background-color:white" item-right><ion-icon color={{menu.color}}  name="arrow-dropright-circle" item-left></ion-icon></ion-badge>
+             </ion-item>
+			<!--<button class="menuBtn" ion-item no-lines item-right icon-left menuClose (click)="openPage(catsPage)">
+				<ion-icon color="light" name="list-box"></ion-icon>
+                Reports
+			</button>
+			<button class="menuBtn"  ion-item no-lines item-right icon-left menuClose (click)="openPage(dogsPage)">
+				<ion-icon color="light" name="cog"></ion-icon>
+                Settings
+			</button>
+            <button  class="menuBtn" ion-item  no-lines item-right icon-left menuClose (click)="logout()">
+				<ion-icon color="light" name="log-out"></ion-icon>
+                logout
+			</button>-->
+		</ion-list>
+	</ion-content>
+
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

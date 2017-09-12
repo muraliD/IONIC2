@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="custom" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="personAddMethod()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list>
+  <ion-item-sliding *ngFor="let person of persons">
+    <ion-item (click)="editPersonMethod(person)">
+      <ion-row>
+        <ion-col col-2 text-left style="background-color:transparent;font-weight: bold;"><h2 style="background-color:transparent;font-weight: bold;"  >{{person.name}}</h2></ion-col>
+        <ion-col end text-left style="text-align: right;background-color:transparent;font-weight: bold;">
+          <ion-icon name="create"></ion-icon>
+        </ion-col>
+      </ion-row>
+      
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="Default" (click)="MYschools(person.id)">
+        <ion-icon name="school"></ion-icon>
+        Education
+      </button>
+      <button ion-button color="secondary" (click)="myBanks(person.id)">
+        <ion-icon name="cash"></ion-icon>
+        Bank
+      </button>
+      <button ion-button color="danger" (click)="deleteMember(person.id)">
+        <ion-icon name="trash"></ion-icon>
+        Delete
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>

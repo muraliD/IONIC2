@@ -1,0 +1,38 @@
+
+<ion-header>
+  <ion-navbar color="custom">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add Bank</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+ <form [formGroup]="bank" (ngSubmit)="bankForm()">
+      <ion-item>
+        <ion-label floating >Bank Name</ion-label>
+        <ion-select formControlName="name">
+         <ion-option  *ngFor='let theme of banksObj' [value]="theme.className" [selected]="theme.className === Select">{{theme.prettyName}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Number</ion-label>
+        <ion-input type="text" formControlName="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>IFSC</ion-label>
+        <ion-input type="text" formControlName="ifsc"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Branch</ion-label>
+        <ion-input type="text" formControlName="branch"></ion-input>
+      </ion-item>
+      <ion-item no-lines >
+      <button ion-button color="custom" large class="btnCenter"  type="submit" [disabled]="!bank.valid">
+        {{formType}}
+        </button>
+      </ion-item>
+</form>
+</ion-content>
+
+

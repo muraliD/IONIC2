@@ -1,0 +1,48 @@
+<!--
+  Generated template for the NewRecord page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="custom">
+    <ion-title>NewRecord</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="newRecord" (ngSubmit)="newRecordForm()">
+      <ion-item >
+        <ion-label floating>Date</ion-label>
+        <ion-input [disabled]="true" type="text" formControlName="date"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating >Type</ion-label>
+        <ion-select formControlName="type">
+         <ion-option  *ngFor='let theme of typeObj' [value]="theme.className" [selected]="theme.className === Select">{{theme.prettyName}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating >categories</ion-label>
+        <ion-select formControlName="cat">
+         <ion-option  *ngFor='let theme of catObj' [value]="theme.id" [selected]="theme.id === Select">{{theme.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Amount</ion-label>
+        <ion-input type="number" formControlName="amount"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-input type="text" formControlName="desc"></ion-input>
+      </ion-item>
+      <ion-item no-lines >
+      <button ion-button color="custom" large class="btnCenter"  type="submit" [disabled]="!newRecord.valid">
+        {{btnTitle}}
+        </button>
+      </ion-item>
+</form>
+</ion-content>

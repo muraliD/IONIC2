@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="danger" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{month}}</ion-title>
+  </ion-navbar>
+</ion-header>
+ <ion-content>
+  <div padding>
+  <ion-segment [(ngModel)]="dashboard" color="red" (ionChange)="onSegmentChanged($event)">
+    <ion-segment-button value="exp">
+       <ion-icon color="danger" name="thumbs-down"></ion-icon> 
+    </ion-segment-button>
+    <ion-segment-button value="inc">
+      <ion-icon color="custom" name="thumbs-up"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+</div>
+<ion-card>
+      <ion-card-header>
+        {{type}}: {{base | currency:'INR':true:'1.2-2'}}
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+ </ion-card>
+</ion-content> 

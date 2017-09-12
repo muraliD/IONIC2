@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar color="custom">
+    <ion-title>NewMember</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="member" (ngSubmit)="memberAdd()">
+      <ion-item>
+        <ion-label floating>Date</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" formControlName="date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Amount</ion-label>
+        <ion-input type="number" formControlName="amount"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>intrest</ion-label>
+        <ion-input type="number" formControlName="intrest"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Mobile</ion-label>
+        <ion-input type="number" formControlName="mobile"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>village</ion-label>
+        <ion-input type="text" formControlName="village"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>About</ion-label>
+        <ion-textarea type="text" formControlName="desc"></ion-textarea>
+      </ion-item>
+      <ion-item no-lines >
+      <button ion-button color="custom" large class="btnCenter"  type="submit" [disabled]="!member.valid">
+        {{formType}}
+        </button>
+      </ion-item>
+</form>
+</ion-content>

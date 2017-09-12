@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="custom">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{type}}</ion-title>
+  </ion-navbar>
+</ion-header>   
+<ion-content class="myList">
+  
+<ion-list class="myList"  *ngFor="let record of records" >  
+  <ion-item-sliding>
+    <ion-item   (click)="editRecordMethod(record)">
+      <ion-row>
+        <ion-col start text-left style="background-color:transparent;font-weight: bold;"><h2 style="background-color:transparent;font-weight: bold;" >{{record.name}}</h2></ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col col-3 style="background-color:transparent;font-weight: bold;">Amount:</ion-col>
+        <ion-col col-3 style="background-color:transparent;font-weight: normal;">{{record.amount | currency:'INR':true:'1.2-2'}}</ion-col>
+        <ion-col end text-right style="background-color:transparent;font-weight: normal;"><ion-icon name="arrow-dropright-circle" color="custom"></ion-icon></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3 style="background-color:transparent;font-weight: normal;">{{record.desc}}</ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="deleteMember(record.id)">
+        <ion-icon name="trash"></ion-icon>
+        Delete
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>
+
